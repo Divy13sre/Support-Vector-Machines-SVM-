@@ -71,10 +71,11 @@ def plot_decision_boundary(clf, X, y, scaler, title):
     plt.contourf(xx, yy, Z, alpha=0.3, cmap=plt.cm.coolwarm)
     plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.coolwarm, edgecolors='k')
     plt.title(title)
-    plt.xlabel("Feature 1")
-    plt.ylabel("Feature 2")
+    plt.xlabel(features[0])
+    plt.ylabel(features[1])
     plt.show()
 
+    
       
  step 9: Hyperparameter Tuning with Grid Search
 
