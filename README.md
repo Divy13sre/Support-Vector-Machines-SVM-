@@ -53,7 +53,7 @@ SVC(C=1)
 
 Step 8: Visualize Decision Boundaries
 
-   def plot_decision_boundary(clf, X, y, scaler, title):
+def plot_decision_boundary(clf, X, y, scaler, title):
     h = 0.02
     x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
     y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
@@ -71,10 +71,11 @@ Step 8: Visualize Decision Boundaries
     plt.contourf(xx, yy, Z, alpha=0.3, cmap=plt.cm.coolwarm)
     plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.coolwarm, edgecolors='k')
     plt.title(title)
-    plt.xlabel(features[0])
-    plt.ylabel(features[1])
+    plt.xlabel("Feature 1")
+    plt.ylabel("Feature 2")
     plt.show()
 
+      
  step 9: Hyperparameter Tuning with Grid Search
 
   param_grid = {
