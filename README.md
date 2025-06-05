@@ -21,7 +21,6 @@ df = pd.read_csv("breast-cancer.csv")
 
 Step 3: Select 2 Features for 2D Visualization
 
-# Use only two features for visualization
 features = ['radius_mean', 'texture_mean']
 X = df[features].values
 y = df['diagnosis'].values
@@ -53,7 +52,6 @@ output:
 SVC(C=1)
 
 Step 8: Visualize Decision Boundaries
-
 def plot_decision_boundary(clf, X, y, scaler, title):
     h = 0.02
     x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
@@ -75,7 +73,8 @@ def plot_decision_boundary(clf, X, y, scaler, title):
     plt.xlabel(features[0])
     plt.ylabel(features[1])
     plt.show()
-  step 9: Hyperparameter Tuning with Grid Search
+
+ step 9: Hyperparameter Tuning with Grid Search
 
   param_grid = {
     'C': [0.1, 1, 10, 100],
@@ -102,17 +101,12 @@ SVC(C=10, gamma=0.1)
 
 Step 10: Evaluate with Cross-Validation and Test Accuracy
 
-# Get best model from Grid Search
 best_model = grid_search.best_estimator_
-
-# Cross-validation scores
 cv_scores = cross_val_score(best_model, X_train_scaled, y_train, cv=5)
 
-# Test accuracy
 y_pred = best_model.predict(X_test_scaled)
 test_accuracy = accuracy_score(y_test, y_pred)
 
-# Print results
 print("Best Parameters:", grid_search.best_params_)
 print("CV Accuracy: {:.2f}% ± {:.2f}%".format(cv_scores.mean() * 100, cv_scores.std() * 100))
 print("Test Accuracy: {:.2f}%".format(test_accuracy * 100))
